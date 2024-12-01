@@ -1,0 +1,95 @@
+
+
+
+<app-course-card #cardRef>
+
+</app-course-card>
+
+
+----------------------------------------
+
+<app-projection-content>
+<p>Content projection is a pattern in woch you insert or project the content you want to use inside
+another component </p>
+
+<pre>
+  -- -----------------------------  =
+  ||  Content projection	Details   ||
+  -- -----------------------------  =
+  Single-slot content projection	: With this type of content projection, a component accepts content from a single source.
+
+  Multi-slot content projection	  : In this scenario, a component accepts content from multiple sources.
+
+  Conditional content projection  :	Components that use conditional content projection render content only when specific conditions are met.
+</pre>
+
+
+</app-projection-content>
+*++++++++++++++++++++++++++++++++++++++
+<app-projection-content >
+  <p question > this is the example  </p>
+  <p #refParagraph>you dont display this becaue seleciton are not defined </p>
+</app-projection-content>
+
+
+
+
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+<div>NG TEMPLATE</div>
+
+<ng-template #blanckImage>
+  <p class="warn" > No omage is avaible yet. </p>
+  <img src="../assets/icon-user.jpg" height="360" width="360"/> />
+</ng-template>
+
+
+<ng-container *ngTemplateOutlet="blanckImage "></ng-container>
+
+<h1>Passer tempplate dans les inputs d un composant </h1>
+
+<ng-template #imageTemplate >
+  <p class="warn" > Image input on estdans la template . </p>
+  <img src="../assets/imageInuput.jpg" height="360" width="360"/>
+</ng-template>
+
+
+<app-test-template [imageTemplate]="imageTemplate"></app-test-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<app-course-card #card1>-->
+
+<!--</app-course-card>-->
+
+<!--<app-course-card #card2>-->
+
+<!--</app-course-card>-->
+
+<router-outlet />
+
+
