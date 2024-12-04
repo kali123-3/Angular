@@ -18,17 +18,24 @@ export const COURSE_SERVICE=new InjectionToken<CoursesService>("COURSE-SERVICE")
   imports: [RouterOutlet,CardComponent,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers:[
-    {
-      provide:COURSE_SERVICE,
-      useFactory : ServiceProvider,
-      deps : [HttpClient]
-    }
-  ]
+  // providers:[
+  //   {
+  //     provide:CoursesService,
+  //     useClass : CoursesService
+  //   }
+  // ]
+
+  // providers:[
+  //  CoursesService,
+  // ]
 })
 export class AppComponent {
   title = 'AngularServiceInjectable';
 
-  constructor(@Inject(COURSE_SERVICE) private coursesService:CoursesService) {
+  constructor( private coursesService:CoursesService) {
   }
+
+//THIS IN CAS USING USfactory
+  // constructor(@Inject(COURSE_SERVICE) private coursesService:CoursesService) {
+  // }
 }

@@ -1,7 +1,5 @@
-import {Component, Inject, Injectable, InjectionToken} from '@angular/core';
+import {Component, SkipSelf} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
-import {HttpClient} from "@angular/common/http";
-import {COURSE_SERVICE} from "../app.component";
 
 
 @Component({
@@ -10,11 +8,19 @@ import {COURSE_SERVICE} from "../app.component";
   imports: [],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css',
+   providers : [
+     CoursesService
+   ],
 
 })
 export class CardComponent {
-  constructor(@Inject(COURSE_SERVICE) private coursesService:CoursesService) {
+  constructor(@SkipSelf() private coursesService: CoursesService) {
     console.log("we are just ");
   }
+
+  // In case using USefactoy one
+  // constructor(@Inject(COURSE_SERVICE) private coursesService:CoursesService) {
+  //   console.log("we are just ");
+  // }
 
 }
